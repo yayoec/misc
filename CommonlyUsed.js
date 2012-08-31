@@ -72,3 +72,18 @@ CrossDomain = {
 		this.Onload = true;
 	}
 }
+/**
+ *事件兼容对象
+ */
+Util = {
+	//判断一个元素是是另一个元素的子元素 可用于mouseover事件多次触发修复 阻止冒泡也可行
+	 eleContains : function (parentNode, childNode) {
+		if (parentNode.contains) {
+			return parentNode != childNode && parentNode.contains(childNode);
+		} else {
+			return !!(parentNode.compareDocumentPosition(childNode) & 16);
+		}
+	 }	 
+	
+	//
+}
