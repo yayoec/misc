@@ -6,7 +6,7 @@
 //
 // Copyright(C), Xunlei SNS Team, 2012, All Rights Reserved.
 //
-// Author: Jeo (yayoec@gmail.com)
+// Author:  zhouxiongzhi
 // Version 1.0
 // --------------------------------------------------------------------------
 class Template {
