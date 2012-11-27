@@ -180,7 +180,15 @@ Util = {
 		}else if (window.clipboardData) {
 			return window.clipboardData.setData('text', value);
 		}
-	}	
+	},
+	getCurrentStyle:function(obj, prop){     
+        if (obj.currentStyle) {    
+            return obj.currentStyle[prop];     
+        } else if(window.getComputedStyle) {        
+            return document.defaultView.getComputedStyle (obj,null)[prop];
+        }
+        return null;   
+    }
 }
 //自定义事件
 function EventTarget(){
