@@ -29,6 +29,33 @@ JsLoader={
 		}else{
 			setTimeout(function(){try{fCallback();}catch(e){}}, 50);
 		}
+	},
+	//类jQuery的jsonp方式
+	getJSON:function (sUrl,data,callback) {
+		if(!data['callback']){
+			var key = 'jQuery' + Math.floor(Math.random()*100000000);
+			data['callback'] = key;
+		}else{
+			var key = data['callback'];
+		}
+		window._ajax = {};
+		window[key] = function (rs) {
+			window._ajax[key] = rs;
+		}
+		data = $H(data).toQueryString();
+		
+		if(url.indexOf('?')>=0){
+			if(url[url.length-1]=='&'){
+				url += data;
+			}else{
+				url =url + '&' + data;
+			}
+		}else{
+			url =url + '?' + data;
+		}
+		JsLoader.load(url,'utf-8',function(){
+			if (callback) callback(_ajax[key]);
+		});
 	}
 };
 //cookie设置读取函数
@@ -73,7 +100,7 @@ CrossDomain = {
 	}
 }
 /**
- *事件兼容对象
+ *事件兼容对象 以下代码收集与javascript 高级编程
  */
 Util = {
 	//判断一个元素是是另一个元素的子元素 可用于mouseover事件多次触发修复 阻止冒泡也可行
@@ -150,8 +177,7 @@ Util = {
 				case 6:
 					return 2;
 				case 4:
-					return 1;
-				
+					return 1;	
 			
 			}
 		}
@@ -276,7 +302,6 @@ var DragDrop = function(){
 				break;
 		}
 	};
-
 	//public interface
 	dragdrop.enable = function(){
 			EventUtil.addHandler(document, "mousedown", handleEvent);
