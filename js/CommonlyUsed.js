@@ -30,7 +30,8 @@ JsLoader={
 			setTimeout(function(){try{fCallback();}catch(e){}}, 50);
 		}
 	},
-	//类jQuery的jsonp方式
+	//类jQuery的jsonp方式 
+	//@Author:Joe
 	getJSON:function (sUrl,data,callback) {
 		if(!data['callback']){
 			var key = 'jQuery' + Math.floor(Math.random()*100000000);
