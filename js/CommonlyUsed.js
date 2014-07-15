@@ -356,3 +356,6 @@ function rotate(target, degree) {
         target.style.transform = "rotate(" + degree + "deg)";
     }
 }
+function isContain(A, B){
+    return A.contains(B) || !! (A.comparePosition(B) & 16);
+}
