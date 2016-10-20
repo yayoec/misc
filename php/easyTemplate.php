@@ -3,10 +3,6 @@
 // File name   : easyTemplate.php
 // Description : 简易模板 
 // Requirement : PHP5 (http://www.php.net)
-//
-// Copyright(C), Xunlei SNS Team, 2012, All Rights Reserved.
-//
-// Author:  zhouxiongzhi
 // Version 1.0
 // --------------------------------------------------------------------------
 class Template {
